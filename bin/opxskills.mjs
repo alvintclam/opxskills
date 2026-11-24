@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { realpathSync } from 'node:fs';
 import fs from 'node:fs/promises';
 import os from 'node:os';
 import path from 'node:path';
@@ -258,7 +259,16 @@ async function main() {
   throw new Error(`Unknown command "${command}". Run "npx opxskills help".`);
 }
 
-if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
+function isDirectExecution() {
+  if (!process.argv[1]) return false;
+  try {
+    return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href;
+  } catch {
+    return import.meta.url === pathToFileURL(process.argv[1]).href;
+  }
+}
+
+if (isDirectExecution()) {
   main().catch((err) => {
     console.error(`Error: ${err instanceof Error ? err.message : String(err)}`);
     process.exitCode = 1;

@@ -1,7 +1,13 @@
 import assert from 'node:assert/strict';
+import { execFileSync } from 'node:child_process';
+import fs from 'node:fs';
+import os from 'node:os';
 import path from 'node:path';
 import { describe, it } from 'node:test';
+import { fileURLToPath } from 'node:url';
 import { resolveInstallDirectory, validateLocalSkillMarkdown } from './opxskills.mjs';
+
+const BIN_PATH = fileURLToPath(new URL('./opxskills.mjs', import.meta.url));
 
 describe('opxskills CLI helpers', () => {
   it('resolves install paths safely across agents and scopes', () => {
@@ -35,5 +41,17 @@ describe('opxskills CLI helpers', () => {
     const bad = validateLocalSkillMarkdown('# No Frontmatter\nJust markdown.');
     assert.equal(bad.valid, false);
     assert.ok(bad.errors.length > 0);
+  });
+
+  it('executes main() when invoked through a symlink (like npx .bin)', () => {
+    const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'opxskills-bin-'));
+    try {
+      const linkPath = path.join(tmpDir, 'opxskills');
+      fs.symlinkSync(BIN_PATH, linkPath);
+      const output = execFileSync(process.execPath, [linkPath, 'help'], { encoding: 'utf8' });
+      assert.match(output, /opxskills — Install, search, and validate SKILL\.md agent skills/);
+    } finally {
+      fs.rmSync(tmpDir, { recursive: true, force: true });
+    }
   });
 });
