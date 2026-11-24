@@ -2,34 +2,35 @@
 
 Zero-dependency CLI to install, search, and validate portable `SKILL.md` AI agent skills for **Claude Code**, **Cursor**, **OpenAI Codex CLI**, and **Gemini CLI** from [OpxSkills](https://www.opxskills.com).
 
+[![npm version](https://img.shields.io/npm/v/opxskills.svg)](https://www.npmjs.com/package/opxskills)
 [![OpxSkills Example Badge](https://www.opxskills.com/badge/docx.svg)](https://www.opxskills.com/skills/docx)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](./LICENSE)
 
 ## Quick start (no install required)
 
-Run directly from GitHub right now (Node.js 20+):
+Run directly with `npx` (Node.js 20+):
 
 ```bash
 # Validate a local SKILL.md file (exits with code 1 on blocking errors)
-npx github:alvintclam/opxskills validate ./SKILL.md
+npx opxskills validate ./SKILL.md
 
 # Install a skill into ~/.claude/skills/<slug>/SKILL.md
-npx github:alvintclam/opxskills add docx
+npx opxskills add docx
 
 # Install into a repo for Cursor / Codex CLI / Gemini CLI (.agents/skills/<slug>/SKILL.md)
-npx github:alvintclam/opxskills add homelab-network-setup --agent cursor --scope project
+npx opxskills add homelab-network-setup --agent cursor --scope project
 
 # Preview install path & source without writing files
-npx github:alvintclam/opxskills add game-hacking-techniques --dry-run
+npx opxskills add game-hacking-techniques --dry-run
 
 # Search the OpxSkills directory
-npx github:alvintclam/opxskills search "homelab subnet"
+npx opxskills search "homelab subnet"
 
 # Print metadata, install commands, and GitHub README badge Markdown
-npx github:alvintclam/opxskills info docx
+npx opxskills info docx
 ```
 
-*(Once published on npm, you can also run `npx opxskills ...` directly.)*
+*(You can also run directly from GitHub via `npx github:alvintclam/opxskills ...`.)*
 
 ## Commands
 

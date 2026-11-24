@@ -5,7 +5,7 @@
   "license": "MIT",
   "type": "module",
   "bin": {
-    "opxskills": "./bin/opxskills.mjs"
+    "opxskills": "bin/opxskills.mjs"
   },
   "files": [
     "bin/opxskills.mjs",
@@ -29,7 +29,7 @@
   "homepage": "https://www.opxskills.com/tools/skill-validator",
   "repository": {
     "type": "git",
-    "url": "https://github.com/alvintclam/opxskills.git"
+    "url": "git+https://github.com/alvintclam/opxskills.git"
   },
   "bugs": {
     "url": "https://github.com/alvintclam/opxskills/issues"
