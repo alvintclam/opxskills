@@ -1,0 +1,40 @@
+{
+  "name": "opxskills",
+  "version": "0.1.0",
+  "description": "Install, search, and validate portable SKILL.md AI agent skills for Claude Code, Cursor, Codex CLI, and Gemini CLI from OpxSkills.",
+  "license": "MIT",
+  "type": "module",
+  "bin": {
+    "opxskills": "./bin/opxskills.mjs"
+  },
+  "files": [
+    "bin/opxskills.mjs",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "test": "node --test bin/opxskills.test.mjs"
+  },
+  "keywords": [
+    "claude",
+    "claude-code",
+    "agent-skills",
+    "skill-md",
+    "cursor",
+    "codex",
+    "gemini-cli",
+    "ai-agents",
+    "opxskills"
+  ],
+  "homepage": "https://www.opxskills.com/tools/skill-validator",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/alvintclam/opxskills.git"
+  },
+  "bugs": {
+    "url": "https://github.com/alvintclam/opxskills/issues"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
