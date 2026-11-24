@@ -8,7 +8,7 @@ Zero-dependency CLI to install, search, and validate portable `SKILL.md` AI agen
 
 ## Quick start (no install required)
 
-Run directly with `npx` (Node.js 20+):
+Run with `npx` (Node.js 20+):
 
 ```bash
 # Validate a local SKILL.md file (exits with code 1 on blocking errors)
@@ -29,8 +29,6 @@ npx opxskills search "homelab subnet"
 # Print metadata, install commands, and GitHub README badge Markdown
 npx opxskills info docx
 ```
-
-*(You can also run directly from GitHub via `npx github:alvintclam/opxskills ...`.)*
 
 ## Commands
 
